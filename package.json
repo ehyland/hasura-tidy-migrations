@@ -1,17 +1,24 @@
 {
-  "name": "tidy-hasura-migrations",
-  "version": "0.0.1-dev",
+  "name": "@ehyland-org/hasura-tidy-migrations",
+  "version": "0.0.0-development",
   "description": "Format sql in hasura migrations",
-  "main": "cjs/index.js",
-  "repository": "https://github.com/ehyland/tidy-hasura-migrations",
+  "repository": "https://github.com/ehyland/hasura-tidy-migrations",
   "author": "Eamon Hyland",
   "license": "MIT",
-  "scripts": {
-    "test": "yarn jest",
-    "build": "tsc --build tsconfig.build.json"
-  },
   "bin": {
     "hasura-tidy-migrations": "./bin/hasura-tidy-migrations.js"
+  },
+  "files": [
+    "dist",
+    "bin"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "yarn jest",
+    "build": "tsc --build tsconfig.build.json",
+    "semantic-release": "semantic-release"
   },
   "dependencies": {
     "@types/fs-extra": "^8.0.1",
@@ -31,6 +38,7 @@
     "@types/sql-formatter": "^2.3.0",
     "prettier": "^1.19.1",
     "ts-node": "^8.6.2",
-    "typescript": "^3.7.5"
+    "typescript": "^3.7.5",
+    "semantic-release": "^17.0.1"
   }
 }
