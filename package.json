@@ -1,5 +1,5 @@
 {
-  "name": "hasura-tidy-migrations",
+  "name": "@ehyland-org/hasura-tidy-migrations",
   "version": "0.0.0-development",
   "description": "Format sql in hasura migrations",
   "repository": "https://github.com/ehyland/hasura-tidy-migrations",
