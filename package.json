@@ -3,7 +3,7 @@
   "version": "0.0.0-development",
   "description": "Format sql in hasura migrations",
   "main": "cjs/index.js",
-  "repository": "https://github.com/ehyland/tidy-hasura-migrations",
+  "repository": "https://github.com/ehyland/hasura-tidy-migrations",
   "author": "Eamon Hyland",
   "license": "MIT",
   "scripts": {
