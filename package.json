@@ -1,5 +1,5 @@
 {
-  "name": "tidy-hasura-migrations",
+  "name": "hasura-tidy-migrations",
   "version": "0.0.0-development",
   "description": "Format sql in hasura migrations",
   "main": "cjs/index.js",
@@ -14,6 +14,10 @@
   "bin": {
     "hasura-tidy-migrations": "./bin/hasura-tidy-migrations.js"
   },
+  "files": [
+    "dist",
+    "bin"
+  ],
   "dependencies": {
     "@types/fs-extra": "^8.0.1",
     "@types/jest": "^25.1.1",
