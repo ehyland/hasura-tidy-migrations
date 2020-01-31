@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`integration when run on dirty migrations formats sql in migrations 1`] = `
+"- args:
+    sql: |-
+      alter table
+        \\"public\\".\\"todos\\"
+      add
+        constraint \\"todos_user_id_fkey\\" foreign key (\\"user_id\\") references \\"public\\".\\"users\\" (\\"id\\") on update restrict on delete restrict;
+  type: run_sql
+"
+`;
+
+exports[`integration when run on dirty migrations formats sql in migrations 2`] = `
+"- args:
+    sql: |-
+      alter table
+        \\"public\\".\\"todos\\" drop constraint \\"todos_user_id_fkey\\"
+  type: run_sql
+"
+`;
+
+exports[`integration when run on dirty migrations formats sql in migrations 3`] = `
+"- args:
+    sql: |-
+      CREATE TABLE \\"public\\".\\"todos\\"(
+        \\"id\\" serial NOT NULL,
+        \\"title\\" text NOT NULL,
+        \\"is_completed\\" boolean NOT NULL DEFAULT false,
+        \\"is_public\\" boolean NOT NULL DEFAULT false,
+        \\"created_at\\" timestamptz NOT NULL DEFAULT now(),
+        \\"user_id\\" text NOT NULL,
+        PRIMARY KEY (\\"id\\")
+      );
+  type: run_sql
+- args:
+    name: todos
+    schema: public
+  type: add_existing_table_or_view
+"
+`;
+
+exports[`integration when run on dirty migrations formats sql in migrations 4`] = `
+"- args:
+    sql: DROP TABLE \\"public\\".\\"todos\\"
+  type: run_sql
+"
+`;
+
+exports[`integration when run on dirty migrations formats sql in migrations 5`] = `
+"- args:
+    cascade: false
+    sql: |-
+      CREATE
+      OR REPLACE VIEW \\"public\\".\\"online_users\\" AS
+      SELECT
+        users.id,
+        users.last_seen
+      FROM
+        users
+      WHERE
+        (
+          users.last_seen >= (now() - '00:00:30' :: interval)
+        );
+  type: run_sql
+- args:
+    name: online_users
+    schema: public
+  type: add_existing_table_or_view
+"
+`;
+
+exports[`integration when run on dirty migrations formats sql in migrations 6`] = `
+"[]
+"
+`;
+
+exports[`integration when run on dirty migrations formats sql in migrations 7`] = `
+"- args:
+    sql: |-
+      CREATE TABLE \\"public\\".\\"users\\"(
+        \\"id\\" text NOT NULL,
+        \\"name\\" text NOT NULL,
+        \\"created_at\\" timestamptz NOT NULL DEFAULT now(),
+        \\"last_seen\\" timestamptz,
+        PRIMARY KEY (\\"id\\")
+      );
+  type: run_sql
+- args:
+    name: users
+    schema: public
+  type: add_existing_table_or_view
+"
+`;
+
+exports[`integration when run on dirty migrations formats sql in migrations 8`] = `
+"- args:
+    sql: DROP TABLE \\"public\\".\\"users\\"
+  type: run_sql
+"
+`;
+
+exports[`integration when run on dirty migrations formats sql in migrations 9`] = `
+"- args:
+    name: user
+    table:
+      name: todos
+      schema: public
+    using:
+      foreign_key_constraint_on: user_id
+  type: create_object_relationship
+"
+`;
+
+exports[`integration when run on dirty migrations formats sql in migrations 10`] = `
+"- args:
+    relationship: user
+    table:
+      name: todos
+      schema: public
+  type: drop_relationship
+"
+`;

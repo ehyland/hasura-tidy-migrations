@@ -6,14 +6,18 @@
   "repository": "https://github.com/ehyland/tidy-hasura-migrations",
   "author": "Eamon Hyland",
   "license": "MIT",
-  "bin": "dist/bin",
   "scripts": {
     "test": "yarn jest",
-    "build": "tsc"
+    "build": "tsc --build tsconfig.build.json"
+  },
+  "bin": {
+    "hasura-tidy-migrations": "./bin/hasura-tidy-migrations.js"
   },
   "dependencies": {
+    "@types/fs-extra": "^8.0.1",
     "@types/jest": "^25.1.1",
     "@types/yargs": "^15.0.2",
+    "fs-extra": "^8.1.0",
     "globby": "^11.0.0",
     "jest": "^25.1.0",
     "js-yaml": "^3.13.1",
@@ -25,6 +29,7 @@
     "@types/js-yaml": "^3.12.2",
     "@types/node": "^13.5.0",
     "@types/sql-formatter": "^2.3.0",
+    "prettier": "^1.19.1",
     "ts-node": "^8.6.2",
     "typescript": "^3.7.5"
   }
